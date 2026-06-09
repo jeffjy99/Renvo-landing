@@ -15,7 +15,7 @@
   border-bottom: 1px solid var(--border-hairline);
 }
 .lp-nav .row { display: flex; align-items: center; justify-content: space-between; height: 72px; }
-.lp-nav img.wordmark { height: 30px; }
+.lp-nav img.wordmark { height: 54px; }
 .lp-nav .links { display: flex; align-items: center; gap: 34px; }
 .lp-nav .links a { font-size: 14px; font-weight: 500; color: var(--text-muted); transition: color .15s ease; }
 .lp-nav .links a:hover { color: var(--text-body); }
