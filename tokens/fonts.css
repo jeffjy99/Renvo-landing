@@ -1,0 +1,10 @@
+/* ============================================================
+   Renvo — Webfonts
+   DM Sans (Regular 400, Medium 500, SemiBold 600, Bold 700).
+   The app ships DM Sans via @expo-google-fonts/dm-sans; no binary
+   font files were provided with the brand kit, so the design-system
+   build loads the identical family from the Google Fonts CDN.
+   Swap this @import for self-hosted @font-face rules if you need
+   the fonts available offline.
+   ============================================================ */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap');

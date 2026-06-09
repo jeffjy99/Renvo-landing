@@ -1,0 +1,53 @@
+/* ============================================================
+   Renvo — Color tokens
+   Dark theme only. Sourced from RenvoAI/theme/tokens.ts + global.css
+   ============================================================ */
+:root {
+  /* ---- Brand accents ---- */
+  --color-teal: #38F4CE;          /* primary action / brand spark */
+  --color-orange: #FF8000;        /* secondary / urgency, expiry */
+  --color-purple: #7373FF;        /* tertiary / matched + scheduled */
+  --color-green-brand: #166534;
+
+  /* ---- Status ---- */
+  --color-status-green: #00FF99;  /* available / active */
+  --color-status-yellow: #FFDD55; /* tomorrow / pending */
+  --color-status-orange: #FF8000; /* expiring soon */
+  --color-status-red: #EF4444;    /* today / overdue */
+  --color-status-completed: #0F766E;
+
+  /* ---- Neutrals / surfaces ---- */
+  --color-background: #141414;    /* app + page background */
+  --color-card: #242424;          /* card surface */
+  --color-card-inner: #141414;    /* nested surface inside a card */
+  --color-tabbar: #1C1C1C;        /* pill nav background */
+  --color-tabbar-active: #3A3A3A; /* active pill segment */
+  --color-border: #2A2A2A;        /* hairline borders / dividers */
+
+  /* ---- Text ---- */
+  --color-text-primary: #FFFFFF;
+  --color-text-secondary: #B4B4B4;
+  --color-text-on-accent: #141414; /* dark ink used on teal/orange fills */
+
+  /* ---- Overlays ---- */
+  --color-overlay: rgba(0, 0, 0, 0.45);
+  --color-modal-backdrop: rgba(0, 0, 0, 0.75);
+
+  /* ============================================================
+     Semantic aliases — prefer these in product / marketing work
+     ============================================================ */
+  --bg-page: var(--color-background);
+  --surface-card: var(--color-card);
+  --surface-inner: var(--color-card-inner);
+  --surface-nav: var(--color-tabbar);
+  --border-hairline: var(--color-border);
+
+  --text-body: var(--color-text-primary);
+  --text-muted: var(--color-text-secondary);
+  --text-on-accent: var(--color-text-on-accent);
+
+  --action-primary: var(--color-teal);
+  --action-primary-ink: var(--color-text-on-accent);
+  --accent-secondary: var(--color-orange);
+  --accent-tertiary: var(--color-purple);
+}

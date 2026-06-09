@@ -1,0 +1,46 @@
+/* ============================================================
+   Renvo — Spacing, radius, border, shadow tokens
+   Product values from RenvoAI/theme/tokens.ts; marketing scale
+   layered on top for full-bleed web sections.
+   ============================================================ */
+:root {
+  /* ---- Spacing scale (px) ---- */
+  --space-0: 0;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;   /* Spacing.small */
+  --space-4: 16px;   /* Spacing.medium / page padding */
+  --space-5: 20px;   /* Spacing.tabGap */
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;  /* list bottom inset */
+  --space-16: 64px;
+  --space-20: 80px;  /* fab offset */
+  --space-28: 112px; /* header spacer / marketing section gap */
+  --space-40: 160px;
+
+  /* Semantic spacing */
+  --page-padding: 16px;       /* product horizontal padding (never 5/8) */
+  --section-padding-y: 112px; /* marketing vertical rhythm */
+  --content-max: 1200px;      /* marketing content width cap */
+
+  /* ---- Radii ---- */
+  --radius-card: 12px;   /* all product cards */
+  --radius-sm: 8px;
+  --radius-lg: 20px;     /* large marketing cards */
+  --radius-pill: 40px;   /* pills / nav / buttons */
+  --radius-full: 9999px;
+
+  /* ---- Border widths ---- */
+  --border-default: 1px;
+  --border-accent: 3px;  /* accent rail on viewing rows */
+
+  /* ---- Elevation / shadow ----
+     Dark UI leans on surface contrast, not heavy shadow.
+     Use sparingly for floating elements (FAB, modals, popovers). */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.35);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.45);
+  --shadow-lg: 0 24px 60px rgba(0, 0, 0, 0.55);
+  --shadow-glow-teal: 0 12px 40px rgba(56, 244, 206, 0.22);
+}
