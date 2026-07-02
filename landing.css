@@ -6,6 +6,16 @@
 .lp { background: var(--bg-page); color: var(--text-body); }
 .lp .wrap { width: 100%; max-width: var(--content-max); margin: 0 auto; padding: 0 32px; }
 
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 /* ---------- Nav ---------- */
 .lp-nav {
   position: sticky; top: 0; z-index: 50;
@@ -56,63 +66,75 @@
   background: radial-gradient(circle, rgba(56,244,206,0.16), transparent 65%);
   top: -180px; right: -120px; pointer-events: none; }
 
-/* ---------- Phone fan (3 real screenshots) ---------- */
-.phone-fan {
+/* ---------- Device stack (dashboard browser window behind, mobile app panel floating in front) ---------- */
+.device-stack {
   position: relative;
   width: 100%;
-  height: 520px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  height: 580px;
 }
-.phone-fan .pf {
+
+/* browser window showing the dashboard — large, sits upper-right, bleeds off the edge */
+.browser-frame {
   position: absolute;
-  border-radius: 36px;
+  top: 20px;
+  right: -90px;
+  width: 720px;
+  max-width: 126%;
+  border-radius: var(--radius-lg);
   overflow: hidden;
-  box-shadow: var(--shadow-lg);
   border: 1px solid #2f2f2f;
   background: #0d0d0d;
-  padding: 8px;
+  box-shadow: var(--shadow-lg);
+  z-index: 1;
 }
-.phone-fan .pf img {
+.browser-bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 13px 16px;
+  background: #1a1a1a;
+  border-bottom: 1px solid #2a2a2a;
+}
+.browser-bar .dot { width: 9px; height: 9px; border-radius: 50%; background: #3a3a3a; }
+.browser-bar .dot-red { background: #ff5f57; }
+.browser-bar .dot-yellow { background: #febc2e; }
+.browser-bar .dot-green { background: #28c840; }
+.browser-screen {
+  overflow: hidden;
+  height: 400px;
+}
+.browser-screen img {
   display: block;
-  border-radius: 28px;
   width: 100%;
-  height: 100%;
+  height: auto;
   object-fit: cover;
   object-position: top;
 }
-/* center phone — front */
-.phone-fan .pf-center {
-  width: 210px;
-  height: 440px;
-  z-index: 3;
-  box-shadow: var(--shadow-lg), 0 0 80px rgba(56,244,206,0.14);
-}
-/* left phone — behind-left */
-.phone-fan .pf-left {
-  width: 180px;
-  height: 380px;
-  z-index: 1;
-  transform: rotate(-10deg) translateX(-140px);
-  transform-origin: center center;
-  opacity: 0.82;
-}
-/* right phone — behind-right */
-.phone-fan .pf-right {
-  width: 180px;
-  height: 380px;
+
+/* mobile app — small floating panel layered in front, upper-left */
+.mobile-panel {
+  position: absolute;
+  top: 56px;
+  right: -110px;
   z-index: 2;
-  transform: rotate(10deg) translateX(140px);
-  transform-origin: center center;
-  opacity: 0.82;
+  width: 230px;
+  border-radius: 22px;
+  overflow: hidden;
+  border: 1px solid #2f2f2f;
+  background: #0d0d0d;
+  box-shadow: var(--shadow-lg), 0 30px 60px rgba(0,0,0,0.45);
 }
+.mobile-panel img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 @media (max-width: 900px) {
-  .phone-fan { height: 360px; }
-  .phone-fan .pf-center { width: 160px; height: 340px; }
-  .phone-fan .pf-left, .phone-fan .pf-right { width: 140px; height: 290px; }
-  .phone-fan .pf-left { transform: rotate(-10deg) translateX(-100px); }
-  .phone-fan .pf-right { transform: rotate(10deg) translateX(100px); }
+  .device-stack { height: 400px; }
+  .browser-frame { width: 84%; right: -6%; top: 12px; }
+  .browser-screen { height: 220px; }
+  .mobile-panel { width: 34%; top: 30px; right: -3%; }
 }
 
 /* ---------- Section shell ---------- */
