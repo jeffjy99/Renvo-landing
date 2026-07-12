@@ -25,18 +25,28 @@ if (contactForm) {
     status.textContent = 'Sending…';
     status.className = 'contact-status';
     try {
-      const res = await fetch('https://formsubmit.co/ajax/RenvoAI@outlook.com', {
+      const turnstileToken = contactForm.querySelector('[name="cf-turnstile-response"]')?.value;
+      if (!turnstileToken) throw new Error('Please complete the verification check.');
+      const res = await fetch('/api/contact', {
         method: 'POST',
-        headers: { 'Accept': 'application/json' },
-        body: new FormData(contactForm),
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: contactForm.querySelector('#contact-name').value,
+          email: contactForm.querySelector('#contact-email').value,
+          message: contactForm.querySelector('#contact-message').value,
+          honey: contactForm.querySelector('#contact-honey').value,
+          turnstileToken,
+        }),
       });
       if (!res.ok) throw new Error('Request failed');
       status.textContent = "Thanks — we'll be in touch soon.";
       status.className = 'contact-status success';
       contactForm.reset();
+      if (window.turnstile) window.turnstile.reset();
     } catch (err) {
-      status.textContent = 'Something went wrong. Please try again.';
+      status.textContent = err.message || 'Something went wrong. Please try again.';
       status.className = 'contact-status error';
+      if (window.turnstile) window.turnstile.reset();
     } finally {
       submitBtn.disabled = false;
     }
